@@ -10,4 +10,5 @@ urlpatterns = [
     path('polls/', include('polls.urls')),
     path('', RedirectView.as_view(url='/polls/', permanent=True)),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('/', RedirectView.as_view(url='/polls/', permanent=True)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
