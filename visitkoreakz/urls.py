@@ -4,12 +4,11 @@ from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 
-
-from . import views
+from polls import views
 
 
 urlpatterns = [
-    path('/', views.index, name='index'),
+    path('/', RedirectView.as_view(url='/polls/', permanent=True)),
     path('index/', views.index, name='index'),
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
