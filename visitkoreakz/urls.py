@@ -5,8 +5,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+from . import views
+
+
 urlpatterns = [
-    path('index/', views.index, name='index')
+    path('/', views.index, name='index'),
+    path('index/', views.index, name='index'),
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
     path('', RedirectView.as_view(url='/polls/', permanent=True)),
